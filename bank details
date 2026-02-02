@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+class bank_account{
+	private :
+		
+	public :
+		float b = 0;
+		void bank(bank_account a)
+		{
+			b=0.00;
+		}
+};
+
+class Account_Manager : public bank_account
+{
+	private : 
+		float c,d,e,f;
+	public :
+		void deposition(bank_account a)
+		{
+			cout << "Current bank Balance : " << b << endl;
+			cout << "Enter The Deposition money : ";
+			cin >> c;
+			d = b + c;
+			cout << "Updated Balance : " << d << endl;
+		}
+		void deduct(bank_account a)
+		{
+			cout << "current bank Balance : " << b << endl;
+			cout << "Enter Deduction money : ";
+			cin >> e;
+			f = b+e;
+			cout << "Upadated Balance : " << f << endl;
+		}
+};
+int main()
+{
+	bank_account g;
+	Account_Manager h;
+	int a;
+	cout << "Enter a Number For Desired Operation :\n 1.desposition \n 2.deduct \n 3.no operation \n";
+	cin >> a;
+	switch(a)
+	{
+		case 1 : {g.bank(g);
+			h.deposition(g);
+			break;
+		}
+		case 2 : {g.bank(g);
+			h.deduct(g); 
+			break;
+		}
+		case 3 : {
+			break;
+		}
+		default : {cout << "Enter a valid Operation" << endl;
+			break;
+		}
+	}
+	return 0;
+}
