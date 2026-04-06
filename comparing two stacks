@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+#define MAX 100
+
+class stack {
+    int arr[MAX];
+    int top;
+
+public:
+    stack() {
+        top = -1;
+    }
+
+    void push(int x) {
+        top = top + 1;
+        arr[top] = x;
+    }
+
+    int pop() {
+        int x = arr[top];
+        top = top - 1;
+        return x;
+    }
+
+    int isempty() {
+        if (top == -1)
+            return 1;
+        else
+            return 0;
+    }
+};
+
+int main() {
+    stack s1, s2;
+    int n, x;
+    int flag = 1;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter stack 1:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        s1.push(x);
+    }
+
+    cout << "Enter stack 2:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        s2.push(x);
+    }
+
+    while (s1.isempty() == 0 && s2.isempty() == 0) {
+        if (s1.pop() != s2.pop()) {
+            flag = 0;
+            break;
+        }
+    }
+
+    if (flag == 1)
+        cout << "Stacks are equal";
+    else
+        cout << "Stacks are not equal";
+
+    return 0;
+}
